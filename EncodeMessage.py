@@ -1,37 +1,23 @@
 # Encrypt a single string
 # Import Libraries
-
 from cryptography.fernet import Fernet
 
-# Declare Functions
-
 def write_key():
-    # Generates a key and save it into a file
     key = Fernet.generate_key()
     with open("key.key", "wb") as key_file:
         key_file.write(key)
 
 def load_key():
-    # Loads the key from the current directory named `key.key`
     return open("key.key", "rb").read()
 
-# Main
-
-# Generate and write a new key
 write_key()
 
-# load the previously generated key
 key = load_key()
-print("Key is " + str(key.decode('utf-8')))
 
-message = "Diogo Ferreira".encode()
-print("Plaintext is " + str(message.decode('utf-8')))
+fernet = Fernet(b'iz0NUE35-853azws9eZ83J-DfmpSjrdl_b1-qZhFrHU=')
 
-# Initialize the Fernet class
-fernet = Fernet(key)
+decodedmessage = fernet.decrypt(b'gAAAAABnpM7liP3iwwzFnztfzjhyBZKlQhvHA3dOzYq9cL1Zpd0K7Oqj7L0GAf767P39BUXJ7Iyz4pa2L1y54DP9oBHMbmN_9ypDzFCSJAAFoDNpuMb6twg=')
+print("The hideen message is : " + str(decodedmessage.decode('utf-8')))
 
-# Encrypt the message
-encrypted = fernet.encrypt(message)
 
-# Print how it looks
-print("Ciphertext is " + encrypted.decode('utf-8'))
+

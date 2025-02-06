@@ -12,8 +12,8 @@ def load_key():
 
 write_key()
 
-key = load_key()
-print("Key is " + str(key.decode('utf-8')))
+#key = load_key()
+#print("Key is " + str(key.decode('utf-8')))
 
 def encrypt(filename, key):
 
@@ -25,11 +25,10 @@ def encrypt(filename, key):
 
     with open(filename, "wb") as file:
         file.write(encrypted_data)
-        print(encrypted_data)
 
 
 def decrypt(filename, key):
-    fernet = Fernet(key)
+    fernet = Fernet(b'yWkpVErlt3n9I-OMjvkr1z18BR_DGNy28banIbOc5xs=')
     with open(filename, "rb") as file:
         encrypted_data = file.read()
 
@@ -37,9 +36,7 @@ def decrypt(filename, key):
 
     with open(filename, "wb") as file:
         file.write(decrypted_data)
-        print(decrypted_data)
 
 
-
-encrypt("names.txt", key)
-print("File encrypted!")
+decrypt("names.txt", b'yWkpVErlt3n9I-OMjvkr1z18BR_DGNy28banIbOc5xs=')
+print("File decrypted !")
