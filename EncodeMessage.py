@@ -14,9 +14,11 @@ write_key()
 
 key = load_key()
 
-fernet = Fernet(b'iz0NUE35-853azws9eZ83J-DfmpSjrdl_b1-qZhFrHU=')
+#In here we insert the key to decrypt the message
+fernet = Fernet(b'3t3gzh8v0_IqcxB7rF-Hic3VaGp_3m-JBMNT8zOgO4s=')
 
-decodedmessage = fernet.decrypt(b'gAAAAABnpM7liP3iwwzFnztfzjhyBZKlQhvHA3dOzYq9cL1Zpd0K7Oqj7L0GAf767P39BUXJ7Iyz4pa2L1y54DP9oBHMbmN_9ypDzFCSJAAFoDNpuMb6twg=')
+#In here we insert the encrypted message to be decrypted
+decodedmessage = fernet.decrypt(b'gAAAAABnpOzQ7Q8EPJKUrj05Lqtn73m7l8H5d3LbL2nKOd6zq9bRfVd8HTRysZ8KKecwPXYghSlQVK8iq1SSEnym5ghG5McWag===')
 print("The hideen message is : " + str(decodedmessage.decode('utf-8')))
 
 
